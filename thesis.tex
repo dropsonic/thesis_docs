@@ -129,7 +129,11 @@
 % Оглавление
 \gappto\captionsrussian{\renewcommand{\contentsname}{Содержание}}
 \usepackage[subfigure,titles]{tocloft}
-\renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}} % точечки не только у глав, но и у всего остального
+% расстояние от номера до названия (чтобы номер на название на заезжал)
+\setlength{\cftchapnumwidth}{2em}
+\setlength{\cftsecnumwidth}{3em}
+\setlength{\cftsubsecnumwidth}{4em}
 
 % Подсчёт объектов (для реферата)
 \usepackage{totcount}
