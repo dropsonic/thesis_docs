@@ -1,0 +1,187 @@
+\documentclass[oneside,final,14pt]{extreport}
+\usepackage{pdfpages} % поддержка вставки страниц из pdf-файлов
+\usepackage[onehalfspacing]{setspace} % 1,5 интервал
+\usepackage[top=2.0cm,bottom=2.0cm,left=2.0cm,right=1.0cm]{geometry} % поля
+\usepackage{lscape} % поддержка альбомной ориентации страниц
+\usepackage{indentfirst} % красная строка
+\setlength\parindent{1.5cm} % установка величины отступа красной строки
+
+\usepackage{etoolbox} % позволяет добавлять произвольный код в начало любой команды, и содержит прочие подобные доп. функции для программирования
+\usepackage{suffix} % позволяет легко определять команды со звёздочкой (starred version of command)
+\usepackage{afterpage} % float overload fix
+\usepackage{placeins} % float barrier
+
+% Шрифты
+\usepackage[cm-default]{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+%\setromanfont[Mapping=tex-text]{Times New Roman}
+\setmainfont[Mapping=tex-text]{Times New Roman}
+\setsansfont{Calibri}
+\setmonofont{Consolas}
+\defaultfontfeatures{Scale=MatchLowercase, Mapping=tex-text} % одинаковый рост строчных букв у разных гарнитур, маппинги TeXовских лигатур вроде -- и ---
+\usepackage{ulem} % поддержка подчёркиваний
+
+% Поддержка русского языка и русскоязычных стилей
+\usepackage{polyglossia}
+\setmainlanguage[babelshorthands=true]{russian} % основной язык - русский
+\setotherlanguage[variant=us]{english} % дополнительный язык - английский
+
+% Формулы
+\usepackage{amsmath}
+\usepackage{amstext} % поддержка текста внутри формул
+\usepackage{amssymb} % дополнительные символы в математических формулах
+%\usepackage{icomma} % запятая в качестве десятичного разделителя
+\usepackage{chngcntr} % управление нумерацией
+\counterwithout{equation}{chapter} % сквозная нумерация формул
+% поддержка кириллицы в формулах (не работает, хотя должно)
+%\usepackage{unicode-math}
+%\setmathfont[math-style=TeX]{Cambria Math}
+%\usepackage[warn]{mathtext}
+
+% Формат заголовков
+\usepackage{titlesec}
+\setcounter{secnumdepth}{3} % включает нумерацию subsubsection
+\newcommand{\nhspacesize}{10pt}
+\newcommand{\nohyphenation}{\righthyphenmin62}
+\titleformat{\chapter}[hang]{\nohyphenation\sloppy\Large\bfseries}{\thechapter}{\nhspacesize}{} % righthypenmin62 - не переносить слова в названиях глав
+\titleformat{\section}[hang]{\nohyphenation\sloppy\large\bfseries}{\thesection}{\nhspacesize}{}
+\titleformat{\subsection}[hang]{\sloppy\normalsize\bfseries}{\thesubsection}{\nhspacesize}{}
+\titleformat{\subsubsection}[hang]{\sloppy\normalsize\bfseries}{\thesubsubsection}{\nhspacesize}{}
+\titlespacing*{\chapter}{\parindent}{-30pt}{*4}
+\titlespacing*{\section}{\parindent}{*4}{*2}
+\titlespacing*{\subsection}{\parindent}{*2}{*1}
+\titlespacing*{\subsubsection}{\parindent}{*1}{*1}
+%\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} % если вдруг нужен интервал между абзацами
+
+% Новый формат заголовков - специальные разделы (реферат, вступление, заключение и т.п.)
+\newcommand{\spchapterStar}[1]{
+	\clearpage
+	\begin{center}
+		\nohyphenation{\sloppy{\textbf{\Large{#1}}}}
+	\end{center}
+	\par}
+\newcommand{\spchapter}[1]{
+	\spchapterStar{#1}
+	\addcontentsline{toc}{chapter}{#1}}
+\WithSuffix\newcommand\spchapter*[1]{\spchapterStar{#1}}
+
+% Формат списков
+\usepackage{enumitem}
+\setlist{nolistsep} % убрать лишний интервал между элементами списка
+\setlist[itemize,1]{label={–}, labelindent=\parindent, leftmargin=*} % маркированные списки: символ - короткое тире, выравнивание символа по красной строке
+\AddEnumerateCounter{\asbuk}{\asbuk}{д} % последний параметр - самый широкий символ в перечислении
+\setlist[enumerate,1]{label={\asbuk*}), labelindent=\parindent, leftmargin=*}
+\setlist[enumerate,2]{label={\arabic*}), leftmargin=\parindent}
+\setlist[description]{labelindent=\parindent, leftmargin=0pt, font=\textmd}
+
+% Поддержка изображений
+\usepackage{graphicx}
+\graphicspath{{./images/chapter1/}{./images/chapter2/}{./images/chapter3/}{./images/chapter4/}} % пути к каталогам с изображениями
+\usepackage{svg} % поддержка вставки векторных (SVG) изображений (из Inkscape) - команда includesvg
+
+% Таблицы
+%\usepackage{makecell}
+%\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+
+%\newcolumntype{CL}[1]{>{\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+%\newcolumntype{CR}[1]{>{\raggedright\arraybackslash}m{#1}}
+%\newcolumntype{TL}[1]{>{\arraybackslash}p{#1}}
+%\newcolumntype{TC}[1]{>{\centering\arraybackslash}p{#1}
+%\newcolumntype{TR}[1]{>{\raggedright\arraybackslash}p{#1}}
+%\newcolumntype{BL}[1]{>{\arraybackslash}b{#1}}
+%\newcolumntype{BC}[1]{>{\centering\arraybackslash}b{#1}}
+%\newcolumntype{BR}[1]{>{\raggedright\arraybackslash}b{#1}}
+%\newcommand{\ptw}[1]{#1\linewidth}
+
+\setlength{\extrarowheight}{4pt}
+%\renewcommand{\arraystretch}{1.5}
+%\newcommand{\tn}{\tabularnewline}
+%\newcommand{\tnhl}{\tabularnewline\hline}
+%\newcommand{\tncl}[1]{\tabularnewline\cline{#1}}
+
+% Формат рисунков и таблиц
+\usepackage{caption} % подписи
+\captionsetup{labelsep=endash, textformat=simple, figurename=Рисунок, tablename=Таблица, figurewithin=none, tablewithin=none} % разделитель подписи и названия - короткое тире, заголовок - название float'a и номер, имена рисунков и таблиц по ГОСТу, сквозная нумерация рисунков и таблиц
+\captionsetup[figure]{position=above}
+\captionsetup[table]{singlelinecheck=false, position=top, justification=raggedright}
+% подписи многостраничных таблиц
+\newcommand{\LTcontcaption}[1]{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{Продолжение таблицы~\ref{#1}}}
+\newcommand{\LTendcaption}[1]{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{ Окончание таблицы~\ref{#1}}}
+%\DeclareCaptionLabelFormat{continued}{#1~#2 (\textit{продолжение})}
+%\captionsetup[ContinuedFloat]{labelformat=continued}
+\usepackage{floatrow} % пакет для настройки размещения float'ов и их подписей
+\floatsetup[table]{style=plaintop, justification=justified} % название над таблицей, таблица выровнена по ширине влево
+
+% Библиография и библиографические ссылки
+\usepackage{cite}
+% Замена формата нумерации списка литературы с "[1]" на "1."
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.}
+\makeatother
+\bibliographystyle{utf8gost705u}
+\gappto\captionsrussian{\renewcommand{\bibname}{Список использованных источников}}
+
+% Оглавление
+\gappto\captionsrussian{\renewcommand{\contentsname}{Содержание}}
+\usepackage[subfigure,titles]{tocloft}
+\renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}
+
+% Подсчёт объектов (для реферата)
+\usepackage{totcount}
+%\regtotcounter{figure} % рисунки
+%\regtotcounter{table} % таблицы
+% подсчёт приложений
+\newtotcounter{appendixcount}
+\usepackage{apptools}
+\pretocmd{\chapter}{\IfAppendix{\addtocounter{appendixcount}{1}}{}}{}{}
+% подсчёт страниц
+\usepackage{lastpage}
+\newcommand{\pagecount}{\pageref{LastPage}}
+% подсчёт использованных источников
+\newtotcounter{refcount}
+\pretocmd{\bibitem}{\addtocounter{refcount}{1}}{}{}
+% подсчёт рисунков и таблиц
+\newtotcounter{figurecount}
+\newtotcounter{tablecount}
+\AfterEndEnvironment{figure}{\addtocounter{figurecount}{1}}
+\AfterEndEnvironment{table}{\addtocounter{tablecount}{1}}
+\AfterEndEnvironment{longtable}{\addtocounter{tablecount}{1}}
+
+% Оформление приложений
+\usepackage[title, titletoc]{appendix}
+% задание своего формата заголовков для приложений
+\pretocmd{\appendix}{
+	\titleformat{\chapter}[display]{\nohyphenation\sloppy\normalsize\centering}{\MakeUppercase{\chaptertitlename} \thechapter}{\nhspacesize}{\bfseries}{}
+	\counterwithin{equation}{chapter}
+	\counterwithin{figure}{chapter}
+	\counterwithin{table}{chapter}
+}{}{}
+
+\begin{document}
+	\includepdf[pages={1}]{title.pdf} % титульник
+	\includepdf[pages={1,2}]{assignment.pdf} % задание
+	\setcounter{page}{3} % начать нумерацию страниц с №3
+	\include{referat}
+	\tableofcontents
+	
+	\include{intro}
+	\include{chapter1}
+	\include{chapter2}
+	\include{chapter3}
+	\include{conclusion}
+	
+	\addcontentsline{toc}{chapter}{\bibname}
+	\nocite{*}
+	\bibliography{thesis}
+	
+	\appendix
+	\begin{appendices}
+		\include{appendix1}
+		\include{appendix2}
+	\end{appendices}
+\end{document}
