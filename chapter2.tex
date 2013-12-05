@@ -44,7 +44,7 @@
 \end{tabular}
 \end{table}
 
-Индекс технического уровня разрабатываемого программного продукта определяется по формуле~\ref{eq:economics:techindex}:
+Индекс технического уровня разрабатываемого программного продукта определяется по формуле~\eqref{eq:economics:techindex}:
 
 \begin{equation}\label{eq:economics:techindex}
 J_{\text{\sl ТУ}} = \sum\limits_{i=1}^{n} \frac{\alpha_i}{\alpha_{i0}} \mu_i ,
@@ -102,7 +102,7 @@ J_{\text{\sl ТУ}} = \frac{9}{2} \cdot 0.05 + \frac{10}{5} \cdot 0.2 + \frac{10
 \end{tabular}
 \end{table}
 
-Затраты труда определяются по формуле~\ref{eq:economics:workcosts}.
+Затраты труда определяются по формуле~\eqref{eq:economics:workcosts}.
 
 \begin{equation}\label{eq:economics:workcosts}
 t_{\text{\sl ПРТ}} = t_{\text{\sl О}} + t_{\text{\sl И}} + t_{\text{\sl А}} + t_{\text{\sl К}} + t_{\text{\sl ОТ}} + t_{\text{\sl Д}}
@@ -140,7 +140,7 @@ t_{\text{\sl ПРТ}} = t_{\text{\sl О}} + t_{\text{\sl И}} + t_{\text{\sl А}
 \end{table}
 
 \section{Расчет заработной платы исполнителей}
-Оплата труда персонала определяется на основе общей трудоёмкости создания ПП по формуле~\ref{eq:economics:salary}.
+Оплата труда персонала определяется на основе общей трудоёмкости создания ПП по формуле~\eqref{eq:economics:salary}.
 
 \begin{equation}\label{eq:economics:salary}
 \text{\sl ЗП}_\text{\sl ПП} = \sum_{i=1}^{k} \text{\sl Т}_i \cdot \overline{\tau_i} \text{,}
@@ -196,7 +196,7 @@ t_{\text{\sl ПРТ}} = t_{\text{\sl О}} + t_{\text{\sl И}} + t_{\text{\sl А}
 $\text{\sl З}_\text{СО} = 230853.60 \cdot 0.302 = 69717.79$ (руб.)
 
 \section{Накладные расходы}
-Под накладными расходами понимаются расходы на электроэнергию в период первого полугодия эксплуатации системы. Они расчитываются по формуле~\ref{eq:economics:overheadcosts}.
+Под накладными расходами понимаются расходы на электроэнергию в период первого полугодия эксплуатации системы. Они расчитываются по формуле~\eqref{eq:economics:overheadcosts}.
 
 \begin{equation}\label{eq:economics:overheadcosts}
 K_\text{\sl ЭЭ} = N_\text{\sl раб.дн.} \cdot \sum P \cdot N_\text{\sl часов} \cdot N_\text{\sl лет} \cdot C_\text{\sl ЭЭ} \text{,}
@@ -244,14 +244,14 @@ $\text{\sl З}_\text{М.В.} = 90 \cdot 8 \cdot 13 = 9360.00$ (руб.)
 \section{Расчет стоимости}
 Цена программного продукта определяется исходя из принципа обеспечения безубыточности деятельности организации, получения прибыли, позволяющей выплатить обязательные платежи в бюджет и инвертировать расширение деятельности.
 
-Цена первоначальной продажи определяется по формуле~\ref{eq:economics:firstsale}.
+Цена первоначальной продажи определяется по формуле~\eqref{eq:economics:firstsale}.
 
 \begin{equation}\label{eq:economics:firstsale}
 \text{\sl Ц}_{\text{\sl НТПр}}^{n} = \text{\sl З}_\text{\sl НТПр} + \frac{\text{\sl ЗП}_\text{\sl ПП} \cdot \rho_\text{\sl ЗП}}{100} \text{,}
 \end{equation}
 
 \begin{description}
-	\item[где $\text{\sl З}_\text{\sl НТПр}$] --- текущие затраты на создание, определяющиеся по формуле~\ref{eq:economics:currentcosts}:
+	\item[где $\text{\sl З}_\text{\sl НТПр}$] --- текущие затраты на создание, определяющиеся по формуле~\eqref{eq:economics:currentcosts}:
 	\begin{equation}\label{eq:economics:currentcosts}
 	\text{\sl З}_\text{\sl НТПр} = \text{\sl ЗП}_\text{\sl пп} + \text{\sl З}_\text{\sl М.В.} \text{;}
 	\end{equation}
@@ -266,7 +266,7 @@ $\text{\sl З}_\text{\sl НТПр} = 230853.60 + 9360 = 240213.60 \text{ руб.
 $\text{\sl Ц}_{\text{\sl НТПр}}^{n} = 240213.60 + \frac{230853.60 \cdot 200}{100} = 701920.80 \text{ руб.}$
 
 \section{Оценка экономической эффективности}
-Так как данная дипломная работа связана с разработкой алгоритмов и программ, то $\text{\sl Э}_\text{\sl НТП}$ определяется по формуле~\ref{eq:economics:economy}.
+Так как данная дипломная работа связана с разработкой алгоритмов и программ, то $\text{\sl Э}_\text{\sl НТП}$ определяется по формуле~\eqref{eq:economics:economy}.
 
 \begin{equation}\label{eq:economics:economy}
 \text{\sl Э}_\text{\sl НТП} = \sum_{i=1}^{n} \varDelta T_\text{\sl мi} \cdot C_{BT} \text{,}
@@ -282,7 +282,7 @@ $\text{\sl Ц}_{\text{\sl НТПр}}^{n} = 240213.60 + \frac{230853.60 \cdot 200
 $\text{\sl Э}_\text{\sl НТП} = 3000 \cdot 8 \cdot 50 = 1 200 000$ (руб.)
 \smallskip
 
-Уровень экономической эффективности ($\text{\sl Е}_\text{\sl ПП}$) и срок окупаемости затрат на создание алгоритмов и ПП ($T_{OK}$) определяется по формулам~\ref{eq:economics:efficiency}~и~\ref{eq:economics:paybacktime}.
+Уровень экономической эффективности ($\text{\sl Е}_\text{\sl ПП}$) и срок окупаемости затрат на создание алгоритмов и ПП ($T_{OK}$) определяется по формулам~\eqref{eq:economics:efficiency}~и~\eqref{eq:economics:paybacktime}.
 
 \begin{equation}\label{eq:economics:efficiency}
 \text{\sl Е}_\text{\sl ПП} = \frac{\text{\sl Э}_\text{\sl НТП}}{\text{\sl Ц}_{\text{\sl НТПр}}}
@@ -338,7 +338,7 @@ $T_{OK} = \frac{1}{1.71} = 0.59$ (года).\smallskip
 \hline
 \end{longtable}
 
-Производственный цикл каждого этапа определяется по формуле~\ref{eq:economics:cycle}.
+Производственный цикл каждого этапа определяется по формуле~\eqref{eq:economics:cycle}.
 
 \begin{equation}\label{eq:economics:cycle}
 T_\text{\sl ц j} = \frac{T_j}{t_\text{\sl рд} \cdot q_j} \text{,}
