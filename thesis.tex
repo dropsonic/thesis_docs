@@ -79,7 +79,7 @@
 
 % Поддержка изображений
 \usepackage{graphicx}
-\graphicspath{{./images/}{./images/chapter1/}{./images/chapter2/}{./images/chapter3/}{./images/chapter4/}} % пути к каталогам с изображениями
+\graphicspath{{./images/}{./special/images/}{./economics/images/}{./labourprotection/images/}{./appendices/images/}} % пути к каталогам с изображениями
 \usepackage{svg} % поддержка вставки векторных (SVG) изображений (из Inkscape) - команда includesvg
 
 % Таблицы
@@ -189,9 +189,9 @@
 	\tableofcontents
 	
 	\include{intro}
-	\include{chapter1}
-	\include{chapter2}
-	\include{chapter3}
+	\include{./special/special}
+	\include{./economics/economics}
+	\include{./labourprotection/labourprotection}
 	\include{conclusion}
 	
 	\addcontentsline{toc}{chapter}{\bibname}
@@ -200,7 +200,7 @@
 	
 	\appendix
 	\begin{appendices}
-		\include{appendix1}
-		\include{appendix2}
+		\include{./appendices/appendix1}
+		\include{./appendices/appendix2}
 	\end{appendices}
 \end{document}
