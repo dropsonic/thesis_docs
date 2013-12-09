@@ -166,6 +166,15 @@
 	\counterwithin{table}{chapter}
 }{}{}
 
+% Псевдокод алгоритмов
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\captionsetup[algorithm]{name = Листинг, labelsep=endash}
+
+% Листинги с исходным кодом
+\usepackage{listings}
+\lstloadlanguages{[Sharp]C}
+\lstset{language=[Sharp]C, morekeywords={var}}
 
 \begin{document}
 	\includepdf[pages={1}]{title.pdf} % титульник
