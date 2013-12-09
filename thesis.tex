@@ -10,6 +10,8 @@
 \usepackage{suffix} % позволяет легко определять команды со звёздочкой (starred version of command)
 \usepackage{afterpage} % float overload fix
 \usepackage{placeins} % float barrier
+\usepackage{caption} % подписи
+\DeclareCaptionLabelSeparator{emdash}{ --- }
 
 % Шрифты
 \usepackage[cm-default]{fontspec}
@@ -105,8 +107,7 @@
 %\newcommand{\tncl}[1]{\tabularnewline\cline{#1}}
 
 % Формат рисунков и таблиц
-\usepackage{caption} % подписи
-\captionsetup{labelsep=endash, textformat=simple, figurename=Рисунок, tablename=Таблица, figurewithin=none, tablewithin=none} % разделитель подписи и названия - короткое тире, заголовок - название float'a и номер, имена рисунков и таблиц по ГОСТу, сквозная нумерация рисунков и таблиц
+\captionsetup{labelsep=emdash, textformat=simple, figurename=Рисунок, tablename=Таблица, figurewithin=none, tablewithin=none} % разделитель подписи и названия - короткое тире, заголовок - название float'a и номер, имена рисунков и таблиц по ГОСТу, сквозная нумерация рисунков и таблиц
 \captionsetup[figure]{position=above}
 \captionsetup[table]{singlelinecheck=false, position=top, justification=raggedright}
 % подписи многостраничных таблиц
@@ -169,7 +170,10 @@
 % Псевдокод алгоритмов
 \usepackage{algorithm}
 \usepackage{algorithmic}
-\captionsetup[algorithm]{name = Листинг, labelsep=endash}
+\BeforeBeginEnvironment{algorithm}{\medskip} % оставлять место перед листингом с псевдокодом
+\input{algo_russian} % перевод терминов псевдокода на русский
+\captionsetup[algorithm]{name = Листинг, labelsep = emdash}
+%\SetAlgoCaptionSeparator{---}
 
 % Листинги с исходным кодом
 \usepackage{listings}
