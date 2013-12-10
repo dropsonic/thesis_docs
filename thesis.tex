@@ -35,6 +35,7 @@
 \usepackage{amssymb} % дополнительные символы в математических формулах
 %\usepackage{icomma} % запятая в качестве десятичного разделителя
 \usepackage{chngcntr} % управление нумерацией
+\apptocmd{\subequations}{\renewcommand{\theequation}{\theparentequation\asbuk{equation}}}{}{} % нумерация подформул кириллицей (например, 5а, 5б, 5в и т.д.)
 \counterwithout{equation}{chapter} % сквозная нумерация формул
 % поддержка кириллицы в формулах (не работает, хотя должно)
 %\usepackage{unicode-math}
