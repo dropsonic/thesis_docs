@@ -11,6 +11,7 @@
 \usepackage{afterpage} % float overload fix
 \usepackage{placeins} % float barrier
 \usepackage{caption} % подписи
+\usepackage{subcaption} % подфлоаты во флоатах
 \DeclareCaptionLabelSeparator{emdash}{ --- }
 
 % Шрифты
@@ -112,6 +113,8 @@
 \captionsetup{labelsep=emdash, textformat=simple, figurename=Рисунок, tablename=Таблица, figurewithin=none, tablewithin=none} % разделитель подписи и названия - короткое тире, заголовок - название float'a и номер, имена рисунков и таблиц по ГОСТу, сквозная нумерация рисунков и таблиц
 \captionsetup[figure]{position=above}
 \captionsetup[table]{singlelinecheck=false, position=top, justification=raggedright}
+\renewcommand{\thesubfigure}{\asbuk{subfigure}} % использовать русский алфавит в качестве нумерации подрисунков
+\captionsetup[subfigure]{labelformat=brace, font={small}}
 % подписи многостраничных таблиц
 \newcommand{\LTcontcaption}[1]{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{Продолжение таблицы~\ref{#1}}}
 \newcommand{\LTendcaption}[1]{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{ Окончание таблицы~\ref{#1}}}
