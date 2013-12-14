@@ -2,7 +2,7 @@
 \usepackage{pdfpages} % поддержка вставки страниц из pdf-файлов
 \usepackage[onehalfspacing]{setspace} % 1,5 интервал
 \usepackage[top=2.0cm,bottom=2.0cm,left=2.0cm,right=1.0cm]{geometry} % поля
-\usepackage{lscape} % поддержка альбомной ориентации страниц
+\usepackage{pdflscape} % поддержка альбомной ориентации страниц
 \usepackage{indentfirst} % красная строка
 \setlength\parindent{1.5cm} % установка величины отступа красной строки
 
@@ -212,7 +212,9 @@
 		\include{./appendices/ddms_training_scheme}
 		\include{./appendices/ddms_clusterdb_scheme}
 		\include{./appendices/ddms_monitoring_scheme}
-		\include{./appendices/appendix1}
-		\include{./appendices/appendix2}
+		\include{./appendices/uml_class_ddms}
+		\include{./appendices/uml_class_dataoperations}
+		\include{./appendices/uml_class_orca}
+		\include{./appendices/uml_class_datacleansing}
 	\end{appendices}
 \end{document}
