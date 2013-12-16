@@ -11,7 +11,8 @@ $T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
 \\ \hline
 $T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
 \endhead
-\csvreader{Nominal.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall \\}%
+\csvreader[late after line = \\]{Nominal.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall}%
+\hline
 \end{longtable}
 
 \begin{longtable}[H]{|C{100pt}|C{80pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|}
@@ -24,7 +25,8 @@ $T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
 \\ \hline
 $T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
 \endhead
-\csvreader{Disabled.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall \\}
+\csvreader[late after line = \\]{Disabled.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall}%
+\hline
 \end{longtable}
 
 \begin{longtable}[H]{|C{100pt}|C{80pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|}
@@ -37,7 +39,8 @@ $T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
 \\ \hline
 $T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
 \endhead
-\csvreader{RetainerInstability.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall \\}
+\csvreader[late after line = \\]{RetainerInstability.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall}%
+\hline
 \end{longtable}
 
 \begin{longtable}[H]{|C{100pt}|C{80pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|}
@@ -50,5 +53,6 @@ $T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
 \\ \hline
 $T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
 \endhead
-\csvreader{LubricationStarvation.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall \\}
+\csvreader[late after line = \\]{LubricationStarvation.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall}%
+\hline
 \end{longtable}
