@@ -1,0 +1,54 @@
+\chapter{Обучающие выборки для тестирования системы}
+\label{app:Data}
+
+\begin{longtable}[H]{|C{100pt}|C{80pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|}
+\caption{Обучающая выборка для номинального режима работы}
+\label{app:Data:Nominal}
+\\ \hline
+$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
+\endfirsthead
+\LTcontcaption{app:Data:Nominal}
+\\ \hline
+$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
+\endhead
+\csvreader{Nominal.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall \\}%
+\end{longtable}
+
+\begin{longtable}[H]{|C{100pt}|C{80pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|}
+\caption{Обучающая выборка (гиродин выключен из комплекса)}
+\label{app:Data:Disabled}
+\\ \hline
+$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
+\endfirsthead
+\LTcontcaption{app:Data:Disabled}
+\\ \hline
+$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
+\endhead
+\csvreader{Disabled.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall \\}
+\end{longtable}
+
+\begin{longtable}[H]{|C{100pt}|C{80pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|}
+\caption{Обучающая выборка (нестабильность ретейнера)}
+\label{app:Data:RetainerInstability}
+\\ \hline
+$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
+\endfirsthead
+\LTcontcaption{app:Data:RetainerInstability}
+\\ \hline
+$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
+\endhead
+\csvreader{RetainerInstability.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall \\}
+\end{longtable}
+
+\begin{longtable}[H]{|C{100pt}|C{80pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|}
+\caption{Обучающая выборка (утечка смазки)}
+\label{app:Data:LubricationStarvation}
+\\ \hline
+$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
+\endfirsthead
+\LTcontcaption{app:Data:LubricationStarvation}
+\\ \hline
+$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
+\endhead
+\csvreader{LubricationStarvation.csv}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall \\}
+\end{longtable}
