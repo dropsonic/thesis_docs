@@ -80,6 +80,9 @@
 \setlist[enumerate,1]{label={\asbuk*}), labelindent=\parindent, leftmargin=*}
 \setlist[enumerate,2]{label={\arabic*}), leftmargin=\parindent}
 \setlist[description]{labelindent=\parindent, leftmargin=0pt, font=\textmd}
+\newenvironment{abbreviation}{%
+\setlist[description]{labelindent=\parindent, leftmargin=0pt, font=\textbf}
+\begin{description}}{\end{description}}
 
 % Поддержка изображений
 \usepackage{graphicx}
@@ -202,6 +205,7 @@
 	\include{referat}
 	\tableofcontents
 	
+	\include{index}
 	\include{intro}
 	\include{./special/special}
 	\include{./economics/economics}
