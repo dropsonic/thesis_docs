@@ -173,7 +173,10 @@
 	\counterwithin{table}{chapter}
 	\counterwithin{algorithm}{chapter}
 }{}{}
-\apptocmd{\appendices}{\renewcommand{\thechapter}{\Asbuk{chapter}}}{}{}
+\apptocmd{\appendices}{
+	\renewcommand{\thechapter}{\Asbuk{chapter}}
+	\titlespacing*{\chapter}{\parindent}{-30pt}{*1}
+}{}{}
 
 % Псевдокод алгоритмов
 \usepackage{algorithm}
@@ -186,7 +189,10 @@
 % Листинги с исходным кодом
 \usepackage{listings}
 \lstloadlanguages{[Sharp]C}
-\lstset{language=[Sharp]C, morekeywords={var}}
+\lstset{language=[Sharp]C,
+   morekeywords={yield,var,get,set,from,select,partial},
+   breaklines=true,
+   basicstyle=\footnotesize\ttfamily}
 
 \begin{document}
 	\includepdf[pages={1}]{title.pdf} % титульник
@@ -218,5 +224,6 @@
 		\include{./appendices/uml_class_datacleansing}
 		\include{./appendices/uml_class_ddms}
 		\include{./appendices/app_params}
+		\include{./appendices/source_code}
 	\end{appendices}
 \end{document}
