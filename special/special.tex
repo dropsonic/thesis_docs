@@ -145,7 +145,7 @@ $t_h$ & Температура на датчике скорости вращен
 Температура на датчике скорости вращения : continuous \\
 \end{algorithm}
 
-Тестирование проводилось для четырёх известных режимов работы: двух штатных и двух внештатных. Данные по внештатным режимам взяты из~\cite{ISSCMGFailureAnalysis}~и~\cite{ISSCMGLessonsLearned}. Для удобства отображения данных для каждого режима было взято только 50 измерений. Для режима, когда гиродин выключен из комплекса, скорость вращения, вибрация и потребляемый ток равны нулю.
+Тестирование проводилось для четырёх известных режимов работы: двух штатных и двух внештатных. Данные по внештатным режимам взяты из~\cite{ISSCMGFailureAnalysis}~и~\cite{ISSCMGLessonsLearned}. Для удобства отображения данных для каждого режима было взято только 50 измерений. Для режима, когда гиродин выключен из комплекса, скорость вращения, вибрация и потребляемый ток равны нулю. Обучающие выборки приведены в приложении
 
 Штатные режимы:
 \begin{itemize}
@@ -159,7 +159,7 @@ $t_h$ & Температура на датчике скорости вращен
 	\item утечка смазки (\textit{Lubrication starvation}).
 \end{itemize}
 
-Графики изменения параметров для всех режимов показаны на рисунках~\ref{fig:spec:results:wheelspeed}--\ref{fig:spec:results:halltemp}.
+Графики изменения параметров для всех режимов показаны на рисунках~\ref{fig:spec:results:wheelspeed}--\ref{fig:spec:results:halltemp}. Как видно из графиков, в обучающей выборке для номинального режима присутствует аномалия измерения (запись №14).
 
 \begin{figure}[h]
 \includegraphics[width=0.7\textwidth]{results_wheelspeed}
@@ -187,6 +187,26 @@ $t_h$ & Температура на датчике скорости вращен
 
 \begin{figure}[h]
 \includegraphics[width=0.7\textwidth]{results_halltemp}
-\caption{Температура датчике скорости вращения ротора для всех режимов работы гиродина}
+\caption{Температура на датчике скорости вращения ротора для всех режимов работы гиродина}
 \label{fig:spec:results:halltemp}
+\end{figure}
+
+Данные были загружены в систему. Использовались следующие настройки: пороговое значение $\varepsilon=0.05$, минимаксная нормализация, метрика расстояния по формуле~\eqref{eq:spec:DDMS:Distance}, расстояние до ближайшей точки кластера. Система корректно нашла аномалию в обучающей выборке для номинального режима работы (запись №14) и сформировала кластеры.
+
+\begin{figure}
+\caption{Модель системы (номинальный режим работы)}
+\label{fig:spec:results:scr:nominal}
+\includegraphics[width=0.6\textwidth]{results_scr_nominal}
+\end{figure}
+
+\begin{figure}
+\caption{Модель системы (гиродин выключен из комплекса)}
+\label{fig:spec:results:scr:disabled}
+\includegraphics[height=0.6\textheight]{results_scr_disabled}
+\end{figure}
+
+\begin{figure}
+\caption{Модель системы (внештатные режимы)}
+\label{fig:spec:results:scr:lubrret}
+\includegraphics[width=0.5\textwidth]{results_scr_lubrret}
 \end{figure}
