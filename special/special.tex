@@ -87,10 +87,106 @@
 \input{./special/subsections/languages_choice}
 
 \section{Разработка программной реализации метода}
-Программная реализация была разработана на языке программирование C\# 5.0 с использованием фреймворка .NET 4.5 в среде Microsoft Visual Studio 2013. Система разработана таким образом, чтобы обеспечить универсальность и лёгкость интеграции в другие смежные системы, позволить повторное использование отдельных модулей. Она имеет текстовый (консольный) интерфейс в соответствии с философией UNIX для возможности использования из других программных систем.
+Программная реализация была разработана на языке программирование C\# 5.0 с использованием фреймворка .NET 4.5 в среде Microsoft Visual Studio 2013. Система разработана таким образом, чтобы обеспечить универсальность и лёгкость интеграции в другие смежные системы, позволить повторное использование отдельных модулей. Она имеет текстовый (консольный) интерфейс в соответствии с философией UNIX для возможности использования из других программных систем. Исходный код приведён в приложении~\ref{app:SourceCode}.
 
 \input{./special/subsections/architecture}
 
 \input{./special/subsections/manual}
 
-\section{Тестирование системы}
+\section{Тестирование системы и анализ результатов}
+Тестирование системы производилось на основе реальных данных телеметрии гиросилового комплекса управления Международной Космической Станции (МКС), собранных за период времени из~\cite{ISSLiveCMGConsole}. Важным фактом является то, что система, подобная разрабатываемой, уже применяется NASA для контроля и диагностики данной части МКС~\cite{IversonSHMforSpaceMissionOperations}.
+
+Гиросиловой комплекс управления показан на рисунке~\ref{fig:spec:results:ISSCMGSystem}. Он состоит из четырёх гироскопов с управляющим моментом (гиродинов).
+
+\begin{figure}[h]
+\includegraphics{iss_cmg_system}
+\caption{Гиросиловой комплекс управления МКС}
+\label{fig:spec:results:ISSCMGSystem}
+\end{figure}
+
+Так как характеристики гиродинов отличаются в зависимости от экземпляра~\cite{IversonSHMforSpaceMissionOperations}, контроль и диагностика с помощью методов интеллектуального анализа данных должна производиться для каждого гиродина по отдельности. Измеряемые параметры гиродина представлены в таблице~\ref{tab:spec:results:CMGParams}. Соответствующий им файл описания параметров представлен в листинге~\ref{lst:spec:results:params}.
+
+\begin{table}[h!]
+\caption{Измеряемые параметры гиродина}
+\label{tab:spec:results:CMGParams}
+\begin{tabular}{|C{70pt}|C{250pt}|C{100pt}|}
+\hline
+Параметр & Описание & Единица измерения \\
+\hline
+$T$ & Дата и время измерения & дд/чч:мм:сс \\
+\hline
+$S$ & Состояние (используется/выключен из комплекса) & --  \\
+\hline
+$\omega$ & Скорость вращения ротора & об/мин \\
+\hline
+$I$ & Ток, потребляемый двигателем ротора & A \\
+\hline
+$a$ & Вибрация & g м/с\textsuperscript{2} \\
+\hline
+$t_b$ & Температура на креплении ротора & \textdegree C \\
+\hline
+$t_h$ & Температура на датчике скорости вращения & \textdegree C \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{algorithm}[h!]
+\caption{Файл с описанием параметров}
+\label{lst:spec:results:params}
+\raggedright
+\addtolength{\leftskip}{5mm}
+\smallskip
+Дата и время : ignore \\
+Состояние : IN USE, DISABLED \\
+Скорость вращения ротора : continuous \\
+Потребляемый двигателем ротора ток : continuous \\
+Вибрация : continuous \\
+Температура на креплении ротора : continuous \\
+Температура на датчике скорости вращения : continuous \\
+\end{algorithm}
+
+Тестирование проводилось для четырёх известных режимов работы: двух штатных и двух внештатных. Данные по внештатным режимам взяты из~\cite{ISSCMGFailureAnalysis}~и~\cite{ISSCMGLessonsLearned}. Для удобства отображения данных для каждого режима было взято только 50 измерений. Для режима, когда гиродин выключен из комплекса, скорость вращения, вибрация и потребляемый ток равны нулю.
+
+Штатные режимы:
+\begin{itemize}
+	\item номинальный (\textit{Nominal});
+	\item гиродин выключен из комплекса (\textit{Disabled}).
+\end{itemize}
+
+Внештатные режимы:
+\begin{itemize}
+	\item нестабильность ретейнера ротора (\textit{Retainer instability});
+	\item утечка смазки (\textit{Lubrication starvation}).
+\end{itemize}
+
+Графики изменения параметров для всех режимов показаны на рисунках~\ref{fig:spec:results:wheelspeed}--\ref{fig:spec:results:halltemp}.
+
+\begin{figure}[h]
+\includegraphics[width=0.7\textwidth]{results_wheelspeed}
+\caption{Скорость вращения ротора для всех режимов работы гиродина}
+\label{fig:spec:results:wheelspeed}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=0.7\textwidth]{results_wheelspeed}
+\caption{Потребляемый двигателем ротора ток для всех режимов работы гиродина}
+\label{fig:spec:results:current}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=0.7\textwidth]{results_vibration}
+\caption{Вибрация для всех режимов работы гиродина}
+\label{fig:spec:results:vibration}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=0.7\textwidth]{results_wheeltemp}
+\caption{Температура на креплении ротора для всех режимов работы гиродина}
+\label{fig:spec:results:wheeltemp}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=0.7\textwidth]{results_halltemp}
+\caption{Температура датчике скорости вращения ротора для всех режимов работы гиродина}
+\label{fig:spec:results:halltemp}
+\end{figure}
