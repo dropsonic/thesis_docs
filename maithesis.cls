@@ -207,8 +207,8 @@
 \renewcommand{\thesubfigure}{\asbuk{subfigure}} % использовать русский алфавит в качестве нумерации подрисунков
 \captionsetup[subfigure]{labelformat=brace, font={small}}
 % подписи многостраничных таблиц
-\newcommand{\LTcontcaption}[1]{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{Продолжение таблицы~\ref{#1}}}
-\newcommand{\LTendcaption}[1]{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{ Окончание таблицы~\ref{#1}}}
+\newcommand{\longtablecontcaption}{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{Продолжение таблицы~\thetable}}
+\newcommand{\longtableendcaption}{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{Окончание таблицы~\thetable}}
 %\DeclareCaptionLabelFormat{continued}{#1~#2 (\textit{продолжение})}
 %\captionsetup[ContinuedFloat]{labelformat=continued}
 \RequirePackage{floatrow} % пакет для настройки размещения float'ов и их подписей
