@@ -209,6 +209,7 @@
 % подписи многостраничных таблиц
 \newcommand{\longtablecontcaption}{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{Продолжение таблицы~\thetable}}
 \newcommand{\longtableendcaption}{\captionsetup{justification=raggedleft, singlelinecheck=false,position=top,font=it}\caption*{Окончание таблицы~\thetable}}
+\newcommand{\longtablehead}[2]{#1 \\ #2 \endfirsthead \longtableendcaption \\ #2 \endlasthead \longtablecontcaption \\ #2 \endhead}
 %\DeclareCaptionLabelFormat{continued}{#1~#2 (\textit{продолжение})}
 %\captionsetup[ContinuedFloat]{labelformat=continued}
 \RequirePackage{floatrow} % пакет для настройки размещения float'ов и их подписей

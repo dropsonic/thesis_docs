@@ -4,15 +4,17 @@
 \newcommand{\datatable}[3]%
 {%
 	\begin{longtable}[H]{|C{100pt}|C{80pt}|C{40pt}|C{50pt}|C{50pt}|C{50pt}|C{50pt}|}
-	\caption{#2}
-	\label{#3}
-	\\ \hline
-	$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
-	\endfirsthead
-	\longtablecontcaption
-	\\ \hline
-	$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\\hline
-	\endhead
+	\longtablehead
+	{
+		\caption{#2}
+		\label{#3}
+	}
+	{
+		\hline
+		$T$ & $S$ & $\omega$ & $I$ & $a$ & $t_b$ & $t_h$ \\
+		\hline
+	}
+	
 	\csvreader[late after line = \\]{#1}{1=\rtime,2=\rstate,3=\rspeed,4=\rcurrent,5=\rvibration,6=\rtempret, 7=\rtemphall}{\rtime & \rstate & \rspeed & \rcurrent & \rvibration & \rtempret & \rtemphall}%
 	\hline
 	\end{longtable}
