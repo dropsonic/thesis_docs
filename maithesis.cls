@@ -64,7 +64,7 @@
 \def\@headofsubfaculty{\@latex@error{No \noexpand\headofsubfaculty given}\@ehc}
 
 \def\universityname#1{\gdef\@universityname{#1}}
-\def\@universityname{\@latex@error{No \noexpand\universityname given}\@ehc}
+\def\@universityname{МАИ}
 
 \def\specialtynumber#1{\gdef\@specialtynumber{#1}}
 \def\@specialtynumber{\@latex@error{No \noexpand\specialtynumber given}\@ehc}
@@ -258,6 +258,20 @@
 \newcommand{\tablestotal}{\total{tablecount}}
 \newcommand{\bibitemstotal}{\total{bibitemcount}}
 \newcommand{\appendicestotal}{\total{appendixcount}}
+% составление реферата
+\newcommand{\referat}[1][]%
+{%
+	\protect\spchapter*{\MakeUppercase{Реферат}}
+	\sloppy
+	{
+		\theauthor\ \MakeUppercase{\thethesistitle}, дипломная работа: \pagestotal~с., \figurestotal~рис., \tablestotal~табл., \bibitemstotal~ист., \appendicestotal~прил.
+		
+		Ключевые слова: \MakeUppercase{\thekeywords}
+	}
+	\medskip
+	
+	#1
+}
 %-----------------------------------------------------------------
 
 % Оформление приложений ------------------------------------------
